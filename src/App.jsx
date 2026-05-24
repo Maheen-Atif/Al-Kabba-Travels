@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Index } from "./pages/Index";
-import PackagePage from "./pages/PackagePage";
-import DeparturePage from "./pages/DeparturePage";
-import StopOverPage from "./pages/StopOverPage";
-import ContactPage from "./pages/ContactPage";
-import FreeSession from "./pages/FreeSession";
-import FeaturedTours from "./pages/FeaturedTours";
+import { Index } from "./Pages/Index";
+import PackagePage from "./Pages/PackagePage";
+import DeparturePage from "./Pages/DeparturePage";
+import StopOverPage from "./Pages/StopOverPage";
+import ContactPage from "./Pages/ContactPage";
+import FreeSession from "./Pages/FreeSession";
+import FeaturedTours from "./Pages/FeaturedTours";
 import BookNow from "./Pages/BookNow";
 
 function App() {
