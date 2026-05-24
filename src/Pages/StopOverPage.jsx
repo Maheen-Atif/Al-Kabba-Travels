@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import Card from "../components/Card";
+import Card from "../components/card";
 import { NavBar } from "../components/NavBar";
 import { Footer } from "../components/Footer";
 

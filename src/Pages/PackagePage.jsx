@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { NavBar } from "../components/NavBar";
 import { Footer } from "../components/Footer";
 import packagesData from "../data/packages";
-import Card from "../components/Card";
+import Card from "../components/card";
 import { Faqs } from "../components/Faqs";
 
 export default function PackagePage() {

@@ -1,6 +1,6 @@
 import { NavBar } from "../components/NavBar";
 import { useState } from "react";
-import Card from "../components/Card";
+import Card from "../components/card";
 import { ScrollPart } from "../components/ScrollPart";
 import Testimonial from "../components/Testimonials";
 import { Cards2 } from "../components/Cards2";

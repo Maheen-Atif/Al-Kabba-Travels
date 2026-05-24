@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
-import departuresData from "../data/departures";
+import departuresData from "../data/Departures";
 import { NavBar } from "../components/NavBar";
 import { Footer } from "../components/Footer";
-import Card from "../components/Card";
+import Card from "../components/card";
 
 export default function DeparturePage() {
   const { city } = useParams();
