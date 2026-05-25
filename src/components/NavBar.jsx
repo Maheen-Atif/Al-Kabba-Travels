@@ -110,7 +110,7 @@ export function NavBar() {
 
   return (
     <>
-      {/* TOP BAR */}
+      
       <div className="bg-teal-800 text-white w-full">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 md:px-10 lg:px-20 py-3">
           <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-3">
@@ -126,27 +126,33 @@ export function NavBar() {
             </div>
 
             <div className="flex flex-wrap justify-center lg:justify-end items-center gap-3">
-              <a href="https://www.facebook.com/people/Alkabbatravel/61574251071425/">
+              <a href="#">
               <div className="w-8 h-8 bg-teal-600 flex items-center justify-center rounded-full">
                 
                 <i className="fa-brands fa-facebook"></i>
               </div>
               </a>
-              <a href="https://www.instagram.com/alkabba_travel?igsh=d2w5amI5Yzc2YWpo">
+              <a href="#">
               <div className="w-8 h-8 bg-teal-600 flex items-center justify-center rounded-full">
                 <i className="fa-brands fa-instagram"></i>
               </div>
               </a>
               
-              <div className="w-8 h-8 bg-teal-600 flex items-center justify-center rounded-full">
+              <a href="#">
+                <div className="w-8 h-8 bg-teal-600 flex items-center justify-center rounded-full">
                 <i className="fa-brands fa-linkedin"></i>
               </div>
-              <div className="w-8 h-8 bg-teal-600 flex items-center justify-center rounded-full">
+              </a>
+              <a href="#"><div className="w-8 h-8 bg-teal-600 flex items-center justify-center rounded-full">
                 <i className="fa-brands fa-youtube"></i>
-              </div>
-              <div className="w-8 h-8 bg-teal-600 flex items-center justify-center rounded-full">
+              </div></a>
+              
+              <a href="#">
+                <div className="w-8 h-8 bg-teal-600 flex items-center justify-center rounded-full">
                 <i className="fa-brands fa-x-twitter"></i>
               </div>
+
+              </a>
               <img
                 src={newZealandFlag}
                 className="w-8 h-8 rounded-full object-cover"
