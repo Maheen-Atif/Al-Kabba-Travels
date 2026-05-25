@@ -16,7 +16,7 @@ export function Cards2() {
       title: "ABTA",
       subtitle: "British Travel Association",
       number: "",
-      bg: "bg-green-700",
+      bg: "bg-teal-700",
       text: "text-white",
       items: [
         "ABTA Protected",
@@ -72,7 +72,7 @@ export function Cards2() {
             <ul className="space-y-3">
               {card.items.map((item, j) => (
                 <li key={j} className="flex gap-2">
-                  <i className="fa-solid fa-check text-green-500 mt-1"></i>
+                  <i className="fa-solid fa-check text-teal-500 mt-1"></i>
                   {item}
                 </li>
               ))}

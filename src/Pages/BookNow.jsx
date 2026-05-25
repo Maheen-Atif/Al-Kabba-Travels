@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Footer } from "../components/Footer";
 import { NavBar } from "../components/NavBar";
-
+import Banner3 from "../images/Banner3.jpeg";
 export default function BookNow() {
   const [formData, setFormData] = useState({
     name: "",
@@ -37,7 +37,7 @@ export default function BookNow() {
         className="w-full h-72 flex items-center justify-center relative"
         style={{
           backgroundImage:
-            "url('https://www.alkabbatravel.com/website/images/alkabba-page-banner.jpg')",
+            `url(${Banner3})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

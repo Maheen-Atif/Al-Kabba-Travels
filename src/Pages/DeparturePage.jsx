@@ -3,7 +3,7 @@ import departuresData from "../data/Departures";
 import { NavBar } from "../components/NavBar";
 import { Footer } from "../components/Footer";
 import Card from "../components/card";
-
+import Banner4 from "../images/Banner4.jpeg";
 export default function DeparturePage() {
   const { city } = useParams();
   const data = departuresData[city];
@@ -27,7 +27,7 @@ export default function DeparturePage() {
       <div
         className="w-full h-72 flex items-center justify-center relative"
         style={{
-          backgroundImage: "url('https://www.alkabbatravel.com/website/images/alkabba-page-banner.jpg')",
+          backgroundImage: `url(${Banner4})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

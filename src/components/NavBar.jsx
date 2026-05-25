@@ -5,7 +5,7 @@ import al from "../images/al.jpeg";
 import QuoteForm from "./QuoteForm";
 import BeatMyQuote from "./BeatMyQuote";
 import { Link } from "react-router-dom";
-
+import Logo from "../images/Logo.png";
 const navItems = [
   {
     label: "Umrah",
@@ -117,7 +117,7 @@ export function NavBar() {
             <div className="flex flex-col sm:flex-row sm:justify-center lg:justify-start items-center gap-2 sm:gap-5">
               <p>
                 <i className="fa-solid fa-envelope mr-1"></i>
-                quotes@alkabbatravel.com
+                quotes@royalharmaintravel.com
               </p>
               <p>
                 <i className="fa-solid fa-phone mr-1"></i>
@@ -165,7 +165,7 @@ export function NavBar() {
         <div className="flex items-center justify-between px-6 py-3">
           {/* LOGO */}
           <Link to="/">
-            <img src={al} className="w-32 h-16 object-contain" />
+            <img src={Logo} className="w-32 h-16 object-contain" />
           </Link>
 
           {/* DESKTOP MENU */}

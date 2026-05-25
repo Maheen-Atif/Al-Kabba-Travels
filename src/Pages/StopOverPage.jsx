@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import Card from "../components/card";
 import { NavBar } from "../components/NavBar";
 import { Footer } from "../components/Footer";
-
+import Banner5 from "../images/Banner5.jpeg";
 export default function StopOverPage() {
   return (
     <>
@@ -11,7 +11,7 @@ export default function StopOverPage() {
         className="w-full h-72 flex items-center justify-center relative"
         style={{
           backgroundImage:
-            "url('https://www.alkabbatravel.com/website/images/stop-banner-main.webp')",
+             `url(${Banner5})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

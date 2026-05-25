@@ -4,12 +4,12 @@ export function ScrollPart() {
       <div className="w-full bg-gray-100 px-8 py-16">
         <div className="h-56 overflow-y-auto border border-gray-300 rounded-lg p-4 bg-white">
           <h2 className="text-2xl font-bold mb-3">
-            Welcome to Al Kabba Travels, Your Trusted Companion for Your Umrah
+            Welcome to Royal Harmain Travels, Your Trusted Companion for Your Umrah
             Travelling
           </h2>
           <p className="mb-4">
             Search for an Umrah package that really helps your spiritual path
-            rather than only a getaway. Al Kabba Travels is privileged to lead
+            rather than only a getaway. Royal Harmain Travels is privileged to lead
             you through every step of the process with carefully designed Umrah
             packages catered to your particular requirements and financial
             capacity.

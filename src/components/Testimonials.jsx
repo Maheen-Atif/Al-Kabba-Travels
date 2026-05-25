@@ -1,24 +1,26 @@
 import { useState } from "react";
-
+import Fatima from "../images/Fatima.webp";
+import Usman from "../images/Usman.webp";
+import Billal from "../images/Billal.webp";
 export default function Testimonial() {
   const testimonials = [
     {
       name: "Fatima",
       role: "Happy Client",
-      image: "https://www.alkabbatravel.com/website/images/fatima-testimonial-alkabba.webp",
-      text: "A Divine Hajj & Umrah Experience with Al Kabba Travel! From seamless visa processing to premium accommodations and expert-guided rituals, Al Kabba Travel made my pilgrimage stress-free and deeply spiritual. Their dedication, professionalism, and attention to detail ensured an unforgettable journey ."
+      image: Fatima,
+      text: "A Divine Hajj & Umrah Experience with Royal Harmain Travel! From seamless visa processing to premium accommodations and expert-guided rituals, Royal Harmain Travel made my pilgrimage stress-free and deeply spiritual. Their dedication, professionalism, and attention to detail ensured an unforgettable journey ."
     },
     {
       name: "Usman Khan",
       role: "Satisfied Customer",
-      image: "http://alkabbatravel.com/website/images/usman-khan-review-alkabba.webp",
-      text: "I went for Umrah with Al Kabbatravel in March, and honestly, I'm really happy with how everything was handled. The visa and flight arrangements were smooth, and our hotel in Makkah was only a few minutes' walk from the Haram, which made things so convenient. Marina, booking agent, was responsive."
+      image: Usman,
+      text: "I went for Umrah with Royal Harmaintravel in March, and honestly, I'm really happy with how everything was handled. The visa and flight arrangements were smooth, and our hotel in Makkah was only a few minutes' walk from the Haram, which made things so convenient. Marina, booking agent, was responsive."
     },
     {
       name: "Muhammad Bilal",
       role: "Pilgrim",
-      image: "https://alkabbatravel.com/website/images/bilal-testimonial-alkabba.webp",
-      text: "Best Umrah Experience from the USA with Al Kabba Travel! Al Kabba Travel made my Umrah journey from the USA seamless and spiritually enriching! From smooth visa processing and affordable flights to top-tier accommodations and expert guidance, every detail was perfectly handled. Highly recommended! "
+      image: Billal,
+      text: "Best Umrah Experience from the USA with Royal Harmain Travel! Royal Harmain Travel made my Umrah journey from the USA seamless and spiritually enriching! From smooth visa processing and affordable flights to top-tier accommodations and expert guidance, every detail was perfectly handled. Highly recommended! "
     }
   ];
 

@@ -112,7 +112,7 @@ export function ReplyForm() {
 
           <button
             type="submit"
-            className="bg-teal-700 py-4 rounded-full font-bold w-full sm:col-span-2 hover:bg-teal-800 transition"
+            className="bg-teal-700 py-4 text-white rounded-full font-bold w-full sm:col-span-2 hover:bg-teal-800 transition"
           >
             Submit Request
           </button>

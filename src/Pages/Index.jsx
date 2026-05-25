@@ -7,6 +7,16 @@ import { Cards2 } from "../components/Cards2";
 import { Faqs } from "../components/Faqs";
 import { Footer } from "../components/Footer";
 import { Link } from "react-router-dom";
+import Banner from "../images/Banner.jpeg";
+import Logo from "../images/Logo.png";
+import Hotel1 from "../images/Hotel1.jpg";
+import Hotel2 from "../images/Hotel2.jpg";
+import Hotel3 from "../images/Hotel3.jpg";
+import FeaturedTours2 from "../Pages/FeaturedTours2";
+import H1 from "../images/H1.jpeg";
+import H2 from "../images/H2.jpeg";
+import H3 from "../images/H3.jpeg";
+import Mina from "../images/Mina.webp";
 export function Index() {
   const [formData, setFormData] = useState({
     name: "",
@@ -22,8 +32,8 @@ export function Index() {
     children: "",
     nationality: "",
   });
-  const [isHuman, setIsHuman] = useState(false);
 
+  const nightsOptions = Array.from({ length: 15 }, (_, i) => i + 1);
 
   const handleChange = (e) => {
     setFormData({
@@ -33,12 +43,6 @@ export function Index() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (!isHuman) {
-      alert("Please confirm you are not a robot");
-      return;
-    }
     e.preventDefault();
 
     alert("Your price request has been sent ");
@@ -63,40 +67,22 @@ export function Index() {
     <>
       <NavBar />
 
-      <img
-        src="https://www.alkabbatravel.com/website/images/alkabba-banner-details.webp"
-        alt="banner"
-        className="w-full object-cover"
-      />
+      <img src={Banner} alt="banner" className="w-full object-cover" />
       <div className="py-10 px-4 sm:px-6 md:px-10 lg:px-20">
         <p className="font-bold text-center text-2xl mb-6">Get Quote</p>
 
         <form
           onSubmit={handleSubmit}
-          className="
-          bg-teal-900
-          p-6 sm:p-8
-          grid
-          grid-cols-1
-          sm:grid-cols-2
-          lg:grid-cols-3
-          gap-5
-          rounded-lg
-          w-full
-          mx-auto
-          
-        "
+          className="bg-teal-900 p-8 grid grid-cols-3 gap-5"
         >
-          {/* Inputs */}
           <input
             name="name"
             value={formData.name}
             onChange={handleChange}
             required
             placeholder="Name*"
-            className="p-3 rounded bg-white w-full"
+            className="p-3 rounded bg-white"
           />
-
           <input
             name="email"
             type="email"
@@ -104,7 +90,7 @@ export function Index() {
             onChange={handleChange}
             required
             placeholder="Email*"
-            className="p-3 rounded bg-white w-full"
+            className="p-3 rounded bg-white"
           />
 
           <input
@@ -113,100 +99,120 @@ export function Index() {
             onChange={handleChange}
             required
             placeholder="Phone*"
-            className="p-3 rounded bg-white w-full"
+            className="p-3 rounded bg-white"
           />
-
-          <input
+          <select
             name="airport"
             value={formData.airport}
             onChange={handleChange}
-            placeholder="Airport"
-            className="p-3 rounded bg-white w-full"
-          />
+            required
+            className="p-3 rounded bg-white"
+          >
+            <option value="">Choose Airport</option>
+            <option>NewYork (any)</option>
+            <option>Chicago IL</option>
+            <option>Washington DC</option>
+            <option>Dallas TX</option>
+            <option>Others</option>
+          </select>
 
           <select
             name="star"
             value={formData.star}
             onChange={handleChange}
-            className="p-3 rounded bg-white w-full"
+            required
+            className="p-3 rounded bg-white"
           >
             <option value="">Select Star</option>
             <option>3 Star</option>
             <option>4 Star</option>
             <option>5 Star</option>
           </select>
-
           <input
-            type="text"
-            placeholder="Departure date"
-            onFocus={(e) => (e.target.type = "date")}
-            onBlur={(e) => (e.target.type = "text")}
+            type="date"
+            name="departure"
             value={formData.departure}
-            className="p-3 rounded bg-white w-full"
+            onChange={handleChange}
+            required
+            className="p-3 rounded bg-white"
           />
-
           <input
-            type="text"
-            placeholder="Return date"
-            onFocus={(e) => (e.target.type = "date")}
-            onBlur={(e) => (e.target.type = "text")}
+            type="date"
+            name="returning"
             value={formData.returning}
-            className="p-3 rounded bg-white w-full"
+            onChange={handleChange}
+            required
+            className="p-3 rounded bg-white"
           />
-
-          <input
+          <select
             name="makkah"
             value={formData.makkah}
             onChange={handleChange}
-            placeholder="Nights in Makkah"
-            className="p-3 rounded bg-white w-full"
-          />
+            required
+            className="p-3 rounded bg-white"
+          >
+            <option value="">Makkah Nights</option>
+            {nightsOptions.map((n) => (
+              <option key={n} value={n}>
+                {n} Nights
+              </option>
+            ))}
+            <option value="other">Other</option>
+          </select>
 
-          <input
+          <select
             name="madinah"
             value={formData.madinah}
             onChange={handleChange}
-            placeholder="Nights in Madinah"
-            className="p-3 rounded bg-white w-full"
-          />
-
+            required
+            className="p-3 rounded bg-white"
+          >
+            <option value="">Madinah Nights</option>
+            {nightsOptions.map((n) => (
+              <option key={n} value={n}>
+                {n} Nights
+              </option>
+            ))}
+            <option value="other">Other</option>
+          </select>
           <input
             name="adults"
             type="number"
             value={formData.adults}
             onChange={handleChange}
+            required
             placeholder="Adults"
-            className="p-3 rounded bg-white w-full"
+            className="p-3 rounded bg-white"
           />
-
           <input
             name="children"
             type="number"
             value={formData.children}
             onChange={handleChange}
+            required
             placeholder="Children"
-            className="p-3 rounded bg-white w-full"
+            className="p-3 rounded bg-white"
           />
-
-          <input
+          <select
             name="nationality"
             value={formData.nationality}
             onChange={handleChange}
-            placeholder="Nationality"
-            className="p-3 rounded bg-white w-full"
-          />
-          <div className="flex items-center gap-2 bg-white p-3 rounded w-full sm:col-span-2 lg:col-span-3">
-            <input
-              type="checkbox"
-              checked={isHuman}
-              onChange={(e) => setIsHuman(e.target.checked)}
-            />
-            <label>I am not a robot</label>
-          </div>
+            required
+            className="p-3 rounded bg-white"
+          >
+            <option value="">Nationality</option>
+            <option>Pakistan</option>
+            <option>India</option>
+            <option>USA</option>
+            <option>UK</option>
+            <option>UAE</option>
+            <option>Other</option>
+          </select>
+
           <div className="sm:col-span-2 lg:col-span-3 flex justify-center">
             <button
               type="submit"
-              className="bg-white px-10 py-3 rounded-full font-bold hover:bg-gray-200 transition"
+              className="bg-gray-200 px-6 py-2 rounded-full font-bold hover:bg-gray-300 transition"
             >
               Request Price
             </button>
@@ -219,7 +225,7 @@ export function Index() {
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
           <Card
-            image="https://www.alkabbatravel.com/uploads/seven-nights-august-basic-umrah-package-1.webp"
+            image={Hotel1}
             title="7 Night August Basic Umrah Package"
             makkahHotel="Makkah Hotel – AL KISWAH TOWER Hotel"
             madinahHotel="Madinah Hotel –Emaar Taibah"
@@ -230,7 +236,7 @@ export function Index() {
             number="+1 773 300 3023"
           />
           <Card
-            image="https://www.alkabbatravel.com/uploads/twelve-nights-august-exclusive-umrah-package-1.webp"
+            image={Hotel2}
             title="12 Night August Exclusive Umrah Package"
             makkahHotel="Makkah Hotel – Elaf Ajyad Hotel"
             madinahHotel="Madinah Hotel –Emaar Taibah"
@@ -241,7 +247,7 @@ export function Index() {
             number="+1 773 300 3023"
           />
           <Card
-            image="https://www.alkabbatravel.com/uploads/fourteen-nights-august-supreme-umrah-package-1.webp"
+            image={Hotel3}
             title="14 Night August Supreme Umrah Package"
             makkahHotel="Makkah Hotel – Swissotel Hotel"
             madinahHotel="Madinah Hotel –Emaar Taibah"
@@ -254,8 +260,8 @@ export function Index() {
         </div>
         <div className="w-full py-10 flex items-center justify-center">
           <Link
-            to="/featured-tours"
-            className="bg-green-700 text-white rounded-lg hover:bg-green-800 px-4 py-2 font-bold transition whitespace-nowrap"
+            to="/featured-tours-2"
+            className="bg-teal-800 text-white rounded-lg hover:bg-teal-900 px-4 py-2 font-bold transition whitespace-nowrap"
           >
             Featured Tours
           </Link>
@@ -265,7 +271,7 @@ export function Index() {
         {/* Left Image */}
         <div className="flex items-center justify-center">
           <img
-            src="https://www.alkabbatravel.com/website/images/elevate-your-faith.webp"
+            src={Mina}
             alt="Mina"
             className="w-full max-w-md h-auto object-cover "
           />
@@ -345,7 +351,7 @@ export function Index() {
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
           <Card
-            image="https://www.alkabbatravel.com/uploads/-days-non-shifting-hajj-package-1.webp"
+            image={H1}
             title="10 Days Non Shifting Hajj Package"
             makkahHotel="Makkah Hotel "
             madinahHotel="Madinah Hotel "
@@ -356,7 +362,7 @@ export function Index() {
             number="+1 773 300 3023"
           />
           <Card
-            image="https://www.alkabbatravel.com/uploads/-days-non-shifting-hajj-package-3.webp"
+            image={H2}
             title="18-19 Days Non Shifting Hajj Package"
             makkahHotel="Makkah Hotel "
             madinahHotel="Madinah Hotel "
@@ -367,7 +373,7 @@ export function Index() {
             number="+1 773 300 3023"
           />
           <Card
-            image="	https://www.alkabbatravel.com/uploads/-days-non-shifting-hajj-package-5.webp"
+            image={H3}
             title="14 Days Non Shifting Hajj Package"
             makkahHotel="Makkah Hotel "
             madinahHotel="Madinah Hotel "
@@ -381,7 +387,7 @@ export function Index() {
         <div className="w-full py-10 flex items-center justify-center">
           <Link
             to="/featured-tours"
-            className="bg-green-700 ext-white rounded-lg hover:bg-green-800 px-4 py-2 font-bold transition whitespace-nowrap"
+            className="bg-teal-800 text-white hover:bg-teal-900 px-4 py-2 font-bold transition whitespace-nowrap"
           >
             Featured Tours
           </Link>
