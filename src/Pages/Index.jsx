@@ -17,7 +17,6 @@ import H1 from "../images/H1.jpeg";
 import H2 from "../images/H2.jpeg";
 import H3 from "../images/H3.jpeg";
 import Mina from "../images/Mina.webp";
-import ReCAPTCHA from "react-google-recaptcha";
 export function Index() {
   const [formData, setFormData] = useState({
     name: "",
@@ -33,7 +32,6 @@ export function Index() {
     children: "",
     nationality: "",
   });
-  const [captchaValue, setCaptchaValue] = useState(null);
 
   const nightsOptions = Array.from({ length: 15 }, (_, i) => i + 1);
 
@@ -47,12 +45,8 @@ export function Index() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!captchaValue) {
-      alert("Please verify that you are not a robot");
-      return;
-    }
 
-    alert("Your price request has been sent");
+    alert("Your price request has been sent!");
 
     setFormData({
       name: "",
@@ -240,12 +234,7 @@ export function Index() {
             <option>UAE</option>
             <option>Other</option>
           </select>
-          <div className="col-span-3 flex justify-center">
-            <ReCAPTCHA
-              sitekey="6LciMgItAAAAAKD-MIJaxf-lzqIu-jknjBE0kQK3"
-              onChange={(value) => setCaptchaValue(value)}
-            />
-          </div>
+          
 
           <div className="sm:col-span-2 lg:col-span-3 flex justify-center">
             <button
