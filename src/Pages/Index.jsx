@@ -17,6 +17,7 @@ import H1 from "../images/H1.jpeg";
 import H2 from "../images/H2.jpeg";
 import H3 from "../images/H3.jpeg";
 import Mina from "../images/Mina.webp";
+import ReCAPTCHA from "react-google-recaptcha";
 export function Index() {
   const [formData, setFormData] = useState({
     name: "",
@@ -32,6 +33,7 @@ export function Index() {
     children: "",
     nationality: "",
   });
+  const [captchaValue, setCaptchaValue] = useState(null);
 
   const nightsOptions = Array.from({ length: 15 }, (_, i) => i + 1);
 
@@ -45,7 +47,12 @@ export function Index() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    alert("Your price request has been sent ");
+    if (!captchaValue) {
+      alert("Please verify that you are not a robot");
+      return;
+    }
+
+    alert("Your price request has been sent");
 
     setFormData({
       name: "",
@@ -129,16 +136,31 @@ export function Index() {
             <option>5 Star</option>
           </select>
           <input
-            type="date"
+            type="text"
             name="departure"
+            placeholder="Departure Date"
+            onFocus={(e) => (e.target.type = "date")}
+            onBlur={(e) => {
+              if (!e.target.value) {
+                e.target.type = "text";
+              }
+            }}
             value={formData.departure}
             onChange={handleChange}
             required
             className="p-3 rounded bg-white"
           />
+
           <input
-            type="date"
+            type="text"
             name="returning"
+            placeholder="Return Date"
+            onFocus={(e) => (e.target.type = "date")}
+            onBlur={(e) => {
+              if (!e.target.value) {
+                e.target.type = "text";
+              }
+            }}
             value={formData.returning}
             onChange={handleChange}
             required
@@ -175,24 +197,34 @@ export function Index() {
             ))}
             <option value="other">Other</option>
           </select>
-          <input
+          <select
             name="adults"
-            type="number"
             value={formData.adults}
             onChange={handleChange}
             required
-            placeholder="Adults"
             className="p-3 rounded bg-white"
-          />
-          <input
+          >
+            <option value="">Adults</option>
+            <option value="1">1 Adult</option>
+            <option value="2">2 Adults</option>
+            <option value="3">3 Adults</option>
+            <option value="4">4 Adults</option>
+            <option value="other">Others</option>
+          </select>
+          <select
             name="children"
-            type="number"
             value={formData.children}
             onChange={handleChange}
             required
-            placeholder="Children"
             className="p-3 rounded bg-white"
-          />
+          >
+            <option value="">Children</option>
+            <option value="1">1 Child</option>
+            <option value="2">2 Children</option>
+            <option value="3">3 Children</option>
+            <option value="4">4 Children</option>
+            <option value="other">Others</option>
+          </select>
           <select
             name="nationality"
             value={formData.nationality}
@@ -208,6 +240,12 @@ export function Index() {
             <option>UAE</option>
             <option>Other</option>
           </select>
+          <div className="col-span-3 flex justify-center">
+            <ReCAPTCHA
+              sitekey="6LciMgItAAAAAKD-MIJaxf-lzqIu-jknjBE0kQK3"
+              onChange={(value) => setCaptchaValue(value)}
+            />
+          </div>
 
           <div className="sm:col-span-2 lg:col-span-3 flex justify-center">
             <button

@@ -156,7 +156,6 @@ function QuoteForm({ show, close  }) {
 
           <input
             name="adults"
-            type="number"
             value={formData.adults}
             onChange={handleChange}
             required
@@ -166,7 +165,6 @@ function QuoteForm({ show, close  }) {
 
           <input
             name="children"
-            type="number"
             value={formData.children}
             onChange={handleChange}
             required
