@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function QuoteForm({ show, close  }) {
+function QuoteForm({ show, close }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -49,23 +49,22 @@ function QuoteForm({ show, close  }) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
-     <div className="bg-white w-[550px] rounded-lg overflow-hidden shadow-2xl relative">
+    <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
 
-        <div className="flex justify-between items-center px-6 py-5 border-b">
-          <h2 className="text-3xl font-semibold">Get Package Price</h2>
+      <div className="bg-white w-full max-w-xl rounded-xl shadow-2xl relative max-h-[90vh] overflow-y-auto">
+        <div className="flex justify-between items-center px-5 py-4 border-b sticky top-0 bg-white">
+          <h2 className="text-xl font-semibold">Get Package Price</h2>
 
           <button
             onClick={close}
-            className="text-4xl text-gray-500 hover:text-black"
+            className="text-3xl text-gray-500 hover:text-black"
           >
             ×
           </button>
         </div>
-
         <form
           onSubmit={handleSubmit}
-          className="bg-teal-900 p-8 grid grid-cols-3 gap-6"
+          className="bg-teal-900 p-5 grid grid-cols-1 sm:grid-cols-2 gap-4"
         >
           <input
             name="name"
@@ -73,7 +72,7 @@ function QuoteForm({ show, close  }) {
             onChange={handleChange}
             required
             placeholder="Name*"
-            className="p-4 rounded bg-white"
+            className="p-3 rounded bg-white w-full"
           />
 
           <input
@@ -83,7 +82,7 @@ function QuoteForm({ show, close  }) {
             onChange={handleChange}
             required
             placeholder="Email*"
-            className="p-4 rounded bg-white"
+            className="p-3 rounded bg-white w-full"
           />
 
           <input
@@ -92,7 +91,7 @@ function QuoteForm({ show, close  }) {
             onChange={handleChange}
             required
             placeholder="Phone*"
-            className="p-4 rounded bg-white"
+            className="p-3 rounded bg-white w-full"
           />
 
           <input
@@ -101,7 +100,7 @@ function QuoteForm({ show, close  }) {
             onChange={handleChange}
             required
             placeholder="Airport"
-            className="p-4 rounded bg-white"
+            className="p-3 rounded bg-white w-full"
           />
 
           <select
@@ -109,40 +108,49 @@ function QuoteForm({ show, close  }) {
             value={formData.star}
             onChange={handleChange}
             required
-            className="p-4 rounded bg-white"
+            className="p-3 rounded bg-white w-full"
           >
             <option value="">Select Star</option>
             <option>3 Star</option>
             <option>4 Star</option>
             <option>5 Star</option>
           </select>
+
           <input
+            name="departure"
             type="text"
-            placeholder="Departure date"
-            onFocus={(e) => (e.target.type = "date")}
-            onBlur={(e) => (e.target.type = "text")}
+            placeholder="Departure Date"
             value={formData.departure}
-            required
-            className="p-4 rounded bg-white"
-          />
-          <input
-            type="text"
-            placeholder="Return date"
             onFocus={(e) => (e.target.type = "date")}
-            onBlur={(e) => (e.target.type = "text")}
-            value={formData.returning}
+            onBlur={(e) => {
+              if (!e.target.value) e.target.type = "text";
+            }}
+            onChange={handleChange}
             required
-            className="p-4 rounded bg-white"
+            className="p-3 rounded bg-white w-full"
           />
-          
+
+          <input
+            name="returning"
+            type="text"
+            placeholder="Return Date"
+            value={formData.returning}
+            onFocus={(e) => (e.target.type = "date")}
+            onBlur={(e) => {
+              if (!e.target.value) e.target.type = "text";
+            }}
+            onChange={handleChange}
+            required
+            className="p-3 rounded bg-white w-full"
+          />
 
           <input
             name="makkah"
             value={formData.makkah}
             onChange={handleChange}
             required
-            placeholder="Nights in Makkah"
-            className="p-4 rounded bg-white"
+            placeholder="Makkah Nights"
+            className="p-3 rounded bg-white w-full"
           />
 
           <input
@@ -150,8 +158,8 @@ function QuoteForm({ show, close  }) {
             value={formData.madinah}
             onChange={handleChange}
             required
-            placeholder="Nights in Madinah"
-            className="p-4 rounded bg-white"
+            placeholder="Madinah Nights"
+            className="p-3 rounded bg-white w-full"
           />
 
           <input
@@ -160,7 +168,7 @@ function QuoteForm({ show, close  }) {
             onChange={handleChange}
             required
             placeholder="Adults"
-            className="p-4 rounded bg-white"
+            className="p-3 rounded bg-white w-full"
           />
 
           <input
@@ -169,7 +177,7 @@ function QuoteForm({ show, close  }) {
             onChange={handleChange}
             required
             placeholder="Children"
-            className="p-4 rounded bg-white"
+            className="p-3 rounded bg-white w-full"
           />
 
           <input
@@ -178,15 +186,17 @@ function QuoteForm({ show, close  }) {
             onChange={handleChange}
             required
             placeholder="Nationality"
-            className="p-4 rounded bg-white"
+            className="p-3 rounded bg-white w-full"
           />
 
-          <button
-            type="submit"
-            className=" bg-white py-4 rounded-full font-bold "
-          >
-            Request price
-          </button>
+          <div className="col-span-full flex justify-center mt-2">
+            <button
+              type="submit"
+              className="bg-white px-6 py-3 rounded-full font-bold w-full sm:w-auto"
+            >
+              Request Price
+            </button>
+          </div>
         </form>
       </div>
     </div>

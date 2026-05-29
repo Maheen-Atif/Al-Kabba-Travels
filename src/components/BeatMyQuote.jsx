@@ -45,31 +45,33 @@ function BeatMyQuotes({ show, close }) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex justify-center items-start z-50 overflow-y-auto py-10">
-      <div className="bg-white w-[500px] rounded-lg shadow-2xl max-h-[90vh] overflow-y-auto">
-
-        <div className="flex justify-between items-center px-6 py-5 border-b bg-white sticky top-0">
-          <h2 className="text-3xl font-semibold">Get Package Price</h2>
+    <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
+      <div className="bg-white w-full max-w-2xl rounded-xl shadow-2xl max-h-[90vh] overflow-y-auto">
+        <div className="flex justify-between items-center px-4 sm:px-6 py-4 border-b sticky top-0 bg-white z-10">
+          <h2 className="text-lg sm:text-2xl font-semibold">
+            Get Package Price
+          </h2>
 
           <button
             onClick={close}
-            className="text-4xl text-gray-500 hover:text-black"
+            className="text-3xl sm:text-4xl text-gray-500 hover:text-black"
           >
             ×
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-teal-900 p-4 space-y-3">
-
-          <div className="grid grid-cols-2 gap-3">
-
+        <form
+          onSubmit={handleSubmit}
+          className="bg-teal-900 p-4 sm:p-6 md:p-8 space-y-4"
+        >
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <input
               name="name"
               value={formData.name}
               onChange={handleChange}
               required
               placeholder="Name*"
-              className="p-3 rounded bg-white"
+              className="p-3 rounded bg-white w-full"
             />
 
             <input
@@ -79,7 +81,7 @@ function BeatMyQuotes({ show, close }) {
               onChange={handleChange}
               required
               placeholder="Email*"
-              className="p-3 rounded bg-white"
+              className="p-3 rounded bg-white w-full"
             />
 
             <input
@@ -88,7 +90,7 @@ function BeatMyQuotes({ show, close }) {
               onChange={handleChange}
               required
               placeholder="WhatsApp*"
-              className="p-3 rounded bg-white"
+              className="p-3 rounded bg-white w-full"
             />
 
             <select
@@ -96,7 +98,7 @@ function BeatMyQuotes({ show, close }) {
               value={formData.packageType}
               onChange={handleChange}
               required
-              className="p-3 rounded bg-white"
+              className="p-3 rounded bg-white w-full"
             >
               <option value="">Package Type</option>
               <option value="Umrah">Umrah</option>
@@ -108,29 +110,28 @@ function BeatMyQuotes({ show, close }) {
             <input
               name="departure"
               type="text"
-              placeholder="Departure Date *"
+              placeholder="Departure Date*"
               onFocus={(e) => (e.target.type = "date")}
               onBlur={(e) => {
                 if (!e.target.value) e.target.type = "text";
               }}
               value={formData.departure}
               onChange={handleChange}
-              className="p-3 rounded bg-white"
+              className="p-3 rounded bg-white w-full"
             />
 
             <input
               name="return"
               type="text"
-              placeholder="Return Date *"
+              placeholder="Return Date*"
               onFocus={(e) => (e.target.type = "date")}
               onBlur={(e) => {
                 if (!e.target.value) e.target.type = "text";
               }}
               value={formData.return}
               onChange={handleChange}
-              className="p-3 rounded bg-white"
+              className="p-3 rounded bg-white w-full"
             />
-
           </div>
 
           <input
@@ -155,7 +156,7 @@ function BeatMyQuotes({ show, close }) {
             name="additionalInfo"
             value={formData.additionalInfo}
             onChange={handleChange}
-            rows="5"
+            rows="4"
             placeholder="Additional Information"
             className="p-3 rounded bg-white w-full"
           />
@@ -169,13 +170,14 @@ function BeatMyQuotes({ show, close }) {
             className="p-3 rounded bg-white w-full"
           />
 
-          <button
-            type="submit"
-            className="bg-white py-3 rounded-full font-bold py-4 px-4"
-          >
-            Submit
-          </button>
-
+          <div className="flex justify-center pt-2">
+            <button
+              type="submit"
+              className="bg-white px-6 py-3 rounded-full font-bold w-full sm:w-auto"
+            >
+              Submit
+            </button>
+          </div>
         </form>
       </div>
     </div>

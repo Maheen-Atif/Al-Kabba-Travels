@@ -6,6 +6,7 @@ import QuoteForm from "./QuoteForm";
 import BeatMyQuote from "./BeatMyQuote";
 import { Link } from "react-router-dom";
 import Logo from "../images/Logo.png";
+
 const navItems = [
   {
     label: "Umrah",
@@ -89,7 +90,6 @@ export function NavBar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // STOP BODY SCROLL WHEN MENU OPEN
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "auto";
   }, [mobileOpen]);
@@ -110,7 +110,6 @@ export function NavBar() {
 
   return (
     <>
-      
       <div className="bg-teal-800 text-white w-full">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 md:px-10 lg:px-20 py-3">
           <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-3">
@@ -120,39 +119,37 @@ export function NavBar() {
                 quotes@royalharmaintravel.com
               </p>
               <p>
-                <i className="fa-solid fa-phone mr-1"></i>
-                +1 773 300 3023
+                <i className="fa-solid fa-phone mr-1"></i>+1 773 300 3023
               </p>
             </div>
 
             <div className="flex flex-wrap justify-center lg:justify-end items-center gap-3">
               <a href="#">
-              <div className="w-8 h-8 bg-teal-600 flex items-center justify-center rounded-full">
-                
-                <i className="fa-brands fa-facebook"></i>
-              </div>
+                <div className="w-8 h-8 bg-teal-600 flex items-center justify-center rounded-full">
+                  <i className="fa-brands fa-facebook"></i>
+                </div>
               </a>
-              <a href="#">
-              <div className="w-8 h-8 bg-teal-600 flex items-center justify-center rounded-full">
-                <i className="fa-brands fa-instagram"></i>
-              </div>
-              </a>
-              
               <a href="#">
                 <div className="w-8 h-8 bg-teal-600 flex items-center justify-center rounded-full">
-                <i className="fa-brands fa-linkedin"></i>
-              </div>
+                  <i className="fa-brands fa-instagram"></i>
+                </div>
               </a>
-              <a href="#"><div className="w-8 h-8 bg-teal-600 flex items-center justify-center rounded-full">
-                <i className="fa-brands fa-youtube"></i>
-              </div></a>
-              
               <a href="#">
                 <div className="w-8 h-8 bg-teal-600 flex items-center justify-center rounded-full">
-                <i className="fa-brands fa-x-twitter"></i>
-              </div>
+                  <i className="fa-brands fa-linkedin"></i>
+                </div>
+              </a>
+              <a href="#">
+                <div className="w-8 h-8 bg-teal-600 flex items-center justify-center rounded-full">
+                  <i className="fa-brands fa-youtube"></i>
+                </div>
+              </a>
+              <a href="#">
+                <div className="w-8 h-8 bg-teal-600 flex items-center justify-center rounded-full">
+                  <i className="fa-brands fa-x-twitter"></i>
+                </div>
+              </a>
 
-              </a>
               <img
                 src={newZealandFlag}
                 className="w-8 h-8 rounded-full object-cover"
@@ -165,17 +162,15 @@ export function NavBar() {
           </div>
         </div>
       </div>
-
-      {/* NAVBAR */}
-      <nav ref={navRef} className="w-full bg-white sticky top-0 z-50 shadow-sm">
+      <nav ref={navRef} className="w-full bg-white sticky top-0 z-40 shadow-sm">
         <div className="flex items-center justify-between px-6 py-3">
-          {/* LOGO */}
           <Link to="/">
             <img src={Logo} className="w-32 h-16 object-contain" />
           </Link>
 
-          {/* DESKTOP MENU */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div
+            className={`hidden lg:flex items-center gap-8 ${mobileOpen ? "hidden" : ""}`}
+          >
             {navItems.map((item, i) => (
               <div
                 key={i}
@@ -184,13 +179,13 @@ export function NavBar() {
                 onMouseLeave={() => setOpenMenu(null)}
               >
                 {item.dropdown.length > 0 ? (
-                  <button className="font-medium hover:text-teal-700">
+                  <button className="font-medium hover:text-teal-700  cursor-pointer">
                     {item.label}
                   </button>
                 ) : (
                   <Link
                     to={item.href}
-                    className="font-medium hover:text-teal-700"
+                    className="font-medium hover:text-teal-700  cursor-pointer"
                   >
                     {item.label}
                   </Link>
@@ -213,43 +208,42 @@ export function NavBar() {
             ))}
           </div>
 
-          {/* BUTTONS */}
-          <div className="hidden lg:flex items-center gap-3">
-            <button
-              onClick={() => setShowForm(true)}
-              className="bg-teal-800 text-white px-4 py-2 rounded-full"
-            >
-              Get Quote
-            </button>
+          {!mobileOpen && (
+            <div className="hidden lg:flex items-center gap-3">
+              <button
+                onClick={() => setShowForm(true)}
+                className="bg-teal-800 text-white px-4 py-2 rounded-full cursor-pointer"
+              >
+                Get Quote
+              </button>
 
-            <button
-              onClick={() => setGShowForm(true)}
-              className="bg-teal-800 text-white px-4 py-2 rounded-full"
-            >
-              Beat My Quote
-            </button>
+              <button
+                onClick={() => setGShowForm(true)}
+                className="bg-teal-800 text-white px-4 py-2 rounded-full  cursor-pointer"
+              >
+                Beat My Quote
+              </button>
 
-            <Link
-              to="/free-session"
-              className="bg-teal-800 text-white px-4 py-2 rounded-full"
-            >
-              Free Session
-            </Link>
-            <button onClick={() => setShowSearch(!showSearch)}>
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </div>
+              <Link
+                to="/free-session"
+                className="bg-teal-800 text-white px-4 py-2 rounded-full"
+              >
+                Free Session
+              </Link>
 
-          {/* HAMBURGER */}
+              <button onClick={() => setShowSearch(!showSearch)}>
+                <i className="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+          )}
+
           <button
             className="lg:hidden text-3xl relative z-50"
             onClick={() => setMobileOpen(true)}
           >
-            ☰
+            <i class="fa-solid fa-bars"></i>
           </button>
         </div>
-
-        {/* SEARCH BOX */}
         {showSearch && (
           <div className="absolute right-10 top-20 w-72 bg-white shadow-lg p-3 rounded z-50">
             <input
@@ -258,7 +252,6 @@ export function NavBar() {
               placeholder="Search..."
               className="w-full border p-2 rounded"
             />
-
             <div className="mt-2 max-h-60 overflow-y-auto">
               {filteredResults.length > 0 ? (
                 filteredResults.map((item, i) => (
@@ -280,19 +273,14 @@ export function NavBar() {
             </div>
           </div>
         )}
-
-        {/* OVERLAY */}
         {mobileOpen && (
           <div
             className="fixed inset-0 bg-black/50 z-40"
             onClick={() => setMobileOpen(false)}
           />
         )}
-
-        {/* MOBILE MENU */}
         <div
-          className={`fixed top-0 left-0 h-full w-72 bg-white z-50 transition-transform duration-300 overflow-y-auto
-          ${mobileOpen ? "translate-x-0" : "-translate-x-full"}`}
+          className={`fixed top-0 left-0 h-full w-72 bg-white z-50 transition-transform duration-300 overflow-y-auto ${mobileOpen ? "translate-x-0" : "-translate-x-full"}`}
         >
           <div className="p-4 border-b flex justify-between">
             <h2 className="font-bold text-teal-800">Menu</h2>
@@ -336,11 +324,39 @@ export function NavBar() {
                 )}
               </div>
             ))}
+
+            <div className="pt-3 flex flex-col gap-3">
+              <button
+                onClick={() => {
+                  setShowForm(true);
+                  setMobileOpen(false);
+                }}
+                className="bg-teal-800 text-white px-4 py-2 rounded-full text-center w-full"
+              >
+                Get Quote
+              </button>
+
+              <button
+                onClick={() => {
+                  setGShowForm(true);
+                  setMobileOpen(false);
+                }}
+                className="bg-teal-800 text-white px-4 py-2 rounded-full text-center w-full"
+              >
+                Beat My Quote
+              </button>
+
+              <Link
+                to="/free-session"
+                onClick={() => setMobileOpen(false)}
+                className="bg-teal-800 text-white px-4 py-2 rounded-full text-center w-full"
+              >
+                Free Session
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
-
-      {/* FORMS */}
       <QuoteForm show={showForm} close={() => setShowForm(false)} />
       <BeatMyQuote show={showGForm} close={() => setGShowForm(false)} />
     </>

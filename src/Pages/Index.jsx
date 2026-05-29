@@ -74,7 +74,7 @@ export function Index() {
 
         <form
           onSubmit={handleSubmit}
-          className="bg-teal-900 p-8 grid grid-cols-3 gap-5"
+         className="bg-teal-900 p-4 sm:p-6 md:p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
         >
           <input
             name="name"
@@ -239,7 +239,7 @@ export function Index() {
           <div className="sm:col-span-2 lg:col-span-3 flex justify-center">
             <button
               type="submit"
-              className="bg-gray-200 px-6 py-2 rounded-full font-bold hover:bg-gray-300 transition"
+              className="bg-gray-200 px-6 py-2 rounded-full font-bold hover:bg-gray-300 transition cursor-pointer"
             >
               Request Price
             </button>
